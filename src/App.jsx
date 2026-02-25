@@ -13,6 +13,8 @@ import EmailVerificationPage from './pages/EmailVerification';
 import RecipesListing from './pages/RecipesListing';
 import RecipeDetailPage from './pages/RecipeDetail';
 import MenuManagement from './pages/MenuManagement';
+import DishEditor from './pages/DishEditor';
+import RequestFoodPage from './pages/RequestFood';
 
 function App() {
     return (
@@ -26,12 +28,14 @@ function App() {
                 <Route path="/verify-email" element={<EmailVerificationPage />} />
                 <Route path="/recipes" element={<RecipesListing />} />
                 <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+                <Route path="/request-food" element={<RequestFoodPage />} />
                 <Route path="/dashboard" element={<DashboardLayout />}>
                     <Route index element={<Dashboard />} />
                 </Route>
                 <Route path="/caterer" element={<CatererLayout />}>
                     <Route index element={<CatererDashboard />} />
                     <Route path="menus" element={<MenuManagement />} />
+                    <Route path="menus/dish/new" element={<DishEditor />} />
                 </Route>
             </Routes>
         </Router>

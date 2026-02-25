@@ -63,8 +63,8 @@ const ImageUploader = ({ images, setImages, mainImageIndex, setMainImageIndex })
                             key={idx}
                             onClick={() => setMainImageIndex(idx)}
                             className={`relative aspect-square cursor-pointer overflow-hidden rounded-2xl group ${mainImageIndex === idx
-                                    ? 'ring-2 ring-[#ef9d2a] ring-offset-2'
-                                    : 'opacity-70 hover:opacity-100 border border-stone-200'
+                                ? 'ring-2 ring-[#ef9d2a] ring-offset-2'
+                                : 'opacity-70 hover:opacity-100 border border-stone-200'
                                 }`}
                         >
                             <img src={img} alt={`Upload ${idx}`} className="h-full w-full object-cover" />
@@ -328,8 +328,8 @@ const DishEditor = () => {
                                         <button
                                             onClick={() => setDietaryType('veg')}
                                             className={`flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition-all ${dietaryType === 'veg'
-                                                    ? 'bg-[#ef9d2a] text-white shadow-md'
-                                                    : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
+                                                ? 'bg-[#ef9d2a] text-white shadow-md'
+                                                : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
                                                 }`}
                                         >
                                             <Leaf className="w-5 h-5" />
@@ -339,8 +339,8 @@ const DishEditor = () => {
                                         <button
                                             onClick={() => setDietaryType('non-veg')}
                                             className={`flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition-all ${dietaryType === 'non-veg'
-                                                    ? 'bg-[#ef9d2a] text-white shadow-md'
-                                                    : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
+                                                ? 'bg-[#ef9d2a] text-white shadow-md'
+                                                : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
                                                 }`}
                                         >
                                             <Bone className="w-5 h-5" />
@@ -350,8 +350,8 @@ const DishEditor = () => {
                                         <button
                                             onClick={() => setDietaryType('vegan')}
                                             className={`flex items-center gap-2 rounded-full px-5 py-3 text-sm font-bold transition-all ${dietaryType === 'vegan'
-                                                    ? 'bg-[#ef9d2a] text-white shadow-md'
-                                                    : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
+                                                ? 'bg-[#ef9d2a] text-white shadow-md'
+                                                : 'border border-stone-200 bg-white text-stone-600 hover:bg-stone-50'
                                                 }`}
                                         >
                                             <Leaf className="w-5 h-5" />

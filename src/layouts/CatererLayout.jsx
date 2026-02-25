@@ -18,7 +18,7 @@ const CatererLayout = () => {
     const navItems = [
         { name: 'Dashboard', path: '/caterer', icon: LayoutDashboard },
         { name: 'Enquiries', path: '/caterer/enquiries', icon: MailOpen, badge: 3 },
-        { name: 'Menu Management', path: '/caterer/menu', icon: MenuSquare },
+        { name: 'Menu Management', path: '/caterer/menus', icon: MenuSquare },
         { name: 'Reviews', path: '/caterer/reviews', icon: Star },
         { name: 'Settings', path: '/caterer/settings', icon: Settings },
     ];

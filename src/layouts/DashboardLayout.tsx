@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
   Mail,
@@ -20,6 +20,7 @@ interface LayoutProps {
 
 const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
@@ -127,7 +128,10 @@ const DashboardLayout: React.FC<LayoutProps> = ({ children }) => {
               <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"></span>
             </button>
 
-            <div className="flex items-center gap-3 rounded-full bg-white py-1.5 pl-1.5 pr-4 shadow-sm border border-stone-100 cursor-pointer hover:shadow-md transition-shadow">
+            <div
+              onClick={() => navigate('/dashboard/profile')}
+              className="flex items-center gap-3 rounded-full bg-white py-1.5 pl-1.5 pr-4 shadow-sm border border-stone-100 cursor-pointer hover:shadow-md transition-shadow"
+            >
               <div className="h-9 w-9 overflow-hidden rounded-full bg-stone-200">
                 <img
                   src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150"

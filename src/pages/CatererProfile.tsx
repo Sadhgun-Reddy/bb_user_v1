@@ -14,6 +14,7 @@ import {
   ThumbsUp,
 } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import { useAppSelector } from '../hooks/redux';
 
 // --- TYPES ---
@@ -261,7 +262,10 @@ const StickySidebar: React.FC<{ caterer: CatererProfileData }> = ({ caterer }) =
       <p className="text-slate-400 font-medium text-sm mb-6">
         Get a customized quote for your event within 24 hours.
       </p>
-      <button className="w-full h-14 rounded-full bg-[#ef9d2a] text-white font-black hover:bg-[#d98a1e] transition-all shadow-lg shadow-orange-500/20 active:scale-95 text-lg">
+      <button
+        onClick={() => toast.success('Enquiry Sent Successfully!')}
+        className="w-full h-14 rounded-full bg-[#ef9d2a] text-white font-black hover:bg-[#d98a1e] transition-all shadow-lg shadow-orange-500/20 active:scale-95 text-lg"
+      >
         Send Enquiry Now
       </button>
     </div>
@@ -336,8 +340,8 @@ export default function CatererProfilePage() {
                   key={tab}
                   onClick={() => setActiveTab(tab)}
                   className={`px-6 py-3 rounded-full text-sm font-bold transition-all whitespace-nowrap ${activeTab === tab
-                      ? 'bg-[#ef9d2a] text-white shadow-md'
-                      : 'text-stone-500 hover:text-stone-900 hover:bg-stone-50'
+                    ? 'bg-[#ef9d2a] text-white shadow-md'
+                    : 'text-stone-500 hover:text-stone-900 hover:bg-stone-50'
                     }`}
                 >
                   {tab}

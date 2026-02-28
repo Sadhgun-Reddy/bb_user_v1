@@ -154,48 +154,53 @@ const Navbar = () => (
   </nav>
 );
 
-const Hero = () => (
-  <header className="relative overflow-hidden py-24 sm:py-32">
-    <div className="absolute -left-20 top-20 h-96 w-96 rounded-full bg-primary/5 blur-3xl"></div>
-    <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-orange-100/40 blur-3xl"></div>
+const Hero = () => {
+  const navigate = useNavigate();
 
-    <div className="relative mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
-      <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary-light px-4 py-1.5 text-sm font-bold text-primary">
-        <Flame size={16} strokeWidth={2.5} />
-        New caterers added daily!
-      </span>
+  return (
+    <header className="relative overflow-hidden py-24 sm:py-32">
+      <div className="absolute -left-20 top-20 h-96 w-96 rounded-full bg-primary/5 blur-3xl"></div>
+      <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-orange-100/40 blur-3xl"></div>
 
-      <h1 className="font-display mb-6 text-5xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
-        Discover Trusted Local Caterers & <span className="text-primary">Community Food</span>
-      </h1>
+      <div className="relative mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
+        <span className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary-light px-4 py-1.5 text-sm font-bold text-primary">
+          <Flame size={16} strokeWidth={2.5} />
+          New caterers added daily!
+        </span>
 
-      <p className="mb-10 max-w-2xl text-lg text-neutral-600 sm:text-xl">
-        From home-cooked meals to event catering, find the best food in your neighborhood crafted by
-        passionate local chefs.
-      </p>
+        <h1 className="font-display mb-6 text-5xl font-extrabold leading-tight tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl">
+          Discover Trusted Local Caterers & <span className="text-primary">Community Food</span>
+        </h1>
 
-      <div className="w-full max-w-2xl">
-        <form className="group relative flex items-center gap-2 rounded-full border border-neutral-200 bg-white p-2 shadow-xl shadow-black/5 transition focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10">
-          <div className="flex h-12 w-12 flex-none items-center justify-center rounded-full text-neutral-400">
-            <MapPin size={24} />
-          </div>
-          <input
-            className="flex-1 border-none bg-transparent px-2 text-lg text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-0"
-            placeholder="Enter your zip code or city..."
-            type="text"
-          />
-          <button
-            className="flex h-12 flex-none items-center justify-center gap-2 rounded-full bg-primary px-8 text-base font-bold text-white transition hover:bg-primary-dark sm:px-10"
-            type="button"
-          >
-            <span className="hidden sm:inline">Find Food</span>
-            <Search size={20} className="sm:hidden" />
-          </button>
-        </form>
+        <p className="mb-10 max-w-2xl text-lg text-neutral-600 sm:text-xl">
+          From home-cooked meals to event catering, find the best food in your neighborhood crafted by
+          passionate local chefs.
+        </p>
+
+        <div className="w-full max-w-2xl">
+          <form className="group relative flex items-center gap-2 rounded-full border border-neutral-200 bg-white p-2 shadow-xl shadow-black/5 transition focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10">
+            <div className="flex h-12 w-12 flex-none items-center justify-center rounded-full text-neutral-400">
+              <MapPin size={24} />
+            </div>
+            <input
+              className="flex-1 border-none bg-transparent px-2 text-lg text-neutral-800 placeholder-neutral-400 focus:outline-none focus:ring-0"
+              placeholder="Enter your zip code or city..."
+              type="text"
+            />
+            <button
+              onClick={() => navigate('/caterers')}
+              className="flex h-12 flex-none items-center justify-center gap-2 rounded-full bg-primary px-8 text-base font-bold text-white transition hover:bg-primary-dark sm:px-10"
+              type="button"
+            >
+              <span className="hidden sm:inline">Find a Caterer</span>
+              <Search size={20} className="sm:hidden" />
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 const ProblemSolution = () => (
   <section className="mx-auto max-w-7xl px-6 py-20">
@@ -417,30 +422,40 @@ const CommunityRecipes = () => (
   </section>
 );
 
-const CTASection = () => (
-  <section className="py-24 bg-white relative overflow-hidden">
-    <div className="absolute top-0 right-0 w-64 h-64 bg-orange-50 rounded-full blur-3xl opacity-60"></div>
-    <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-50 rounded-full blur-3xl opacity-60"></div>
+const CTASection = () => {
+  const navigate = useNavigate();
 
-    <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
-      <h2 className="font-display mb-6 text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl">
-        Ready to taste the difference?
-      </h2>
-      <p className="mb-10 text-xl font-medium text-neutral-600">
-        Join thousands of food lovers and talented local chefs building a stronger community through
-        food.
-      </p>
-      <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <button className="h-14 min-w-[200px] rounded-full bg-primary px-8 text-lg font-bold text-white shadow-lg shadow-primary/25 transition hover:bg-primary-dark hover:-translate-y-0.5">
-          Join Community
-        </button>
-        <button className="h-14 min-w-[200px] rounded-full border-2 border-neutral-200 bg-transparent px-8 text-lg font-bold text-neutral-900 transition hover:border-neutral-300 hover:bg-neutral-50">
-          Learn More
-        </button>
+  return (
+    <section className="py-24 bg-white relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-64 h-64 bg-orange-50 rounded-full blur-3xl opacity-60"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-50 rounded-full blur-3xl opacity-60"></div>
+
+      <div className="mx-auto max-w-4xl px-6 text-center relative z-10">
+        <h2 className="font-display mb-6 text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl">
+          Ready to taste the difference?
+        </h2>
+        <p className="mb-10 text-xl font-medium text-neutral-600">
+          Join thousands of food lovers and talented local chefs building a stronger community through
+          food.
+        </p>
+        <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <button
+            onClick={() => navigate('/caterers')}
+            className="h-14 min-w-[200px] rounded-full bg-primary px-8 text-lg font-bold text-white shadow-lg shadow-primary/25 transition hover:bg-primary-dark hover:-translate-y-0.5"
+          >
+            Find a Caterer
+          </button>
+          <button
+            onClick={() => navigate('/recipes')}
+            className="h-14 min-w-[200px] rounded-full border-2 border-neutral-200 bg-transparent px-8 text-lg font-bold text-neutral-900 transition hover:border-neutral-300 hover:bg-neutral-50"
+          >
+            View Recipes
+          </button>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const Footer = () => (
   <footer className="border-t border-neutral-100 bg-white py-16">

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { loginUser, clearError } from '../store/slices/authSlice';
 import { useForm } from 'react-hook-form';
@@ -25,30 +25,30 @@ const AuthNavbar = () => {
         <span className="text-stone-900 text-lg font-bold tracking-tight">Book Bawarchi</span>
       </div>
       <nav className="hidden md:flex items-center gap-8">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Home
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/caterers"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Find Caterers
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/recipes"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Recipes
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="#"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Support
-        </a>
+        </Link>
       </nav>
       <div className="md:hidden">
         <Menu className="w-6 h-6 text-stone-800" />
@@ -274,12 +274,12 @@ const LoginPage = () => {
 
                 {/* Forgot Password (Above Login Button) */}
                 <div className="flex justify-end mt-1">
-                  <a
-                    href="#"
+                  <Link
+                    to="/reset-password"
                     className="text-sm font-bold text-stone-500 hover:text-[#ef9d2a] transition-colors"
                   >
                     Forgot password?
-                  </a>
+                  </Link>
                 </div>
 
                 {/* Primary Action */}
@@ -300,23 +300,23 @@ const LoginPage = () => {
               <div className="mt-8 text-center space-y-4">
                 <p className="text-sm font-medium text-stone-600">
                   Don't have an account?{' '}
-                  <a
-                    href="#"
+                  <Link
+                    to="/signup"
                     className="font-bold text-[#ef9d2a] hover:underline decoration-2 underline-offset-2"
                   >
                     Sign up
-                  </a>
+                  </Link>
                 </p>
                 <div className="pt-4 border-t border-stone-100">
                   <p className="text-sm font-medium text-stone-600">
                     Are you a business?{' '}
-                    <a
-                      href="/caterer"
+                    <Link
+                      to="/caterer"
                       className="font-bold text-[#1b160d] hover:text-[#ef9d2a] transition-colors inline-flex items-center gap-1"
                     >
                       Register as a caterer
                       <ArrowRight className="w-4 h-4" />
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

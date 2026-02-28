@@ -14,6 +14,7 @@ import {
   Reply,
   PartyPopper,
 } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 
 // TYPES
 interface KPIStat {
@@ -121,6 +122,8 @@ const MOCK_DATA: { kpiStats: KPIStat[]; recentEnquiries: RecentEnquiry[] } = {
 };
 
 const CatererDashboard: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col gap-8 animate-fade-in">
       {/* Top Header Section */}
@@ -202,12 +205,12 @@ const CatererDashboard: React.FC = () => {
         <div className="lg:col-span-2 flex flex-col gap-4">
           <div className="flex items-center justify-between mb-1">
             <h2 className="text-xl font-bold text-[#1b160d]">Recent Enquiries</h2>
-            <a
-              href="#"
+            <Link
+              to="/caterer/requests"
               className="text-sm font-bold text-[#ef9d2a] hover:text-orange-600 transition-colors"
             >
               View All
-            </a>
+            </Link>
           </div>
 
           <div className="bg-white rounded-2xl shadow-sm border border-stone-100 overflow-hidden flex flex-col">
@@ -275,7 +278,10 @@ const CatererDashboard: React.FC = () => {
           <h2 className="text-xl font-bold text-[#1b160d] mb-1">Quick Actions</h2>
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-stone-100 h-full flex flex-col">
             <div className="grid grid-cols-1 gap-3 flex-1">
-              <button className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 hover:bg-orange-50 hover:border-orange-200 border border-transparent transition-all group text-left">
+              <button
+                onClick={() => navigate('/caterer/menus')}
+                className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 hover:bg-orange-50 hover:border-orange-200 border border-transparent transition-all group text-left"
+              >
                 <div className="bg-white p-2 rounded-full shadow-sm text-stone-600 group-hover:text-[#ef9d2a] transition-colors">
                   <ImagePlus className="w-5 h-5" />
                 </div>
@@ -287,7 +293,10 @@ const CatererDashboard: React.FC = () => {
                 </div>
               </button>
 
-              <button className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 hover:bg-orange-50 hover:border-orange-200 border border-transparent transition-all group text-left">
+              <button
+                onClick={() => navigate('/caterer/settings')}
+                className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 hover:bg-orange-50 hover:border-orange-200 border border-transparent transition-all group text-left"
+              >
                 <div className="bg-white p-2 rounded-full shadow-sm text-stone-600 group-hover:text-[#ef9d2a] transition-colors">
                   <CalendarClock className="w-5 h-5" />
                 </div>

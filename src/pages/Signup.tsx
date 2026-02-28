@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ChangeEvent, FormEvent, KeyboardEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   ChefHat,
   Menu,
@@ -22,38 +22,38 @@ const AuthNavbar = () => {
         <span className="text-stone-900 text-lg font-bold tracking-tight">Book Bawarchi</span>
       </div>
       <nav className="hidden md:flex items-center gap-8">
-        <a
-          href="/"
+        <Link
+          to="/"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Home
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/caterers"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Find Caterers
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="/recipes"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Recipes
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          to="#"
           className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
         >
           Support
-        </a>
+        </Link>
       </nav>
       <div className="flex items-center gap-3">
-        <a
-          href="/login"
+        <Link
+          to="/login"
           className="hidden md:flex items-center justify-center rounded-full h-10 px-6 border border-stone-200 hover:border-[#ef9d2a] text-stone-900 hover:text-[#ef9d2a] text-sm font-bold transition-all"
         >
           Login
-        </a>
+        </Link>
         <div className="md:hidden">
           <Menu className="w-6 h-6 text-stone-800" />
         </div>
@@ -375,12 +375,12 @@ const SignUpPage = () => {
 
                   <p className="mt-6 text-center text-sm font-medium text-stone-600">
                     Already have an account?{' '}
-                    <a
-                      href="/login"
+                    <Link
+                      to="/login"
                       className="font-bold text-[#1b160d] hover:text-[#ef9d2a] transition-colors"
                     >
                       Log in
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </form>

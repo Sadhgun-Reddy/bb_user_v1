@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import toast from 'react-hot-toast';
 
 // --- TYPES ---
 export type SettingsTab = 'Basic Info' | 'Location' | 'Operations' | 'Verification';
@@ -39,7 +40,10 @@ const SettingsHeader: React.FC = () => (
         Manage your caterer identity and operational preferences.
       </p>
     </div>
-    <button className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#ef9d2a] hover:bg-[#d98a1e] text-white font-black text-sm flex items-center justify-center gap-2 shadow-md shadow-orange-500/20 active:scale-95 transition-all shrink-0">
+    <button
+      onClick={() => toast.success('Settings Saved Successfully!')}
+      className="w-full sm:w-auto px-8 py-3 rounded-full bg-[#ef9d2a] hover:bg-[#d98a1e] text-white font-black text-sm flex items-center justify-center gap-2 shadow-md shadow-orange-500/20 active:scale-95 transition-all shrink-0"
+    >
       <Check className="w-4 h-4" strokeWidth={3} />
       Save Changes
     </button>
@@ -111,7 +115,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({ formData, setFormData }) =>
 
   const onSubmit: SubmitHandler<Partial<CatererSettingsInputs>> = (data) => {
     setFormData({ ...formData, ...(data as CatererSettingsInputs) });
-    console.log('Saved data:', data);
+    toast.success('Settings Saved Successfully!');
   };
 
   const aboutCharacterCount = watch('about')?.length || 0;

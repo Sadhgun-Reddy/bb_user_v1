@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import {
   PlusCircle,
   Search,
@@ -166,6 +167,8 @@ const MOCK_DATA: DashboardMockData = {
 };
 
 const Dashboard: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col gap-8 animate-fade-in">
       {/* Welcome Section & Quick Actions */}
@@ -177,11 +180,17 @@ const Dashboard: React.FC = () => {
           </h1>
         </div>
         <div className="flex flex-wrap gap-3">
-          <button className="flex items-center gap-2 rounded-full bg-[#ef9d2a] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-200 transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm">
+          <button
+            onClick={() => navigate('/request-food')}
+            className="flex items-center gap-2 rounded-full bg-[#ef9d2a] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-orange-200 transition-transform hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm"
+          >
             <PlusCircle className="w-5 h-5" />
             Create Enquiry
           </button>
-          <button className="flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-[#1b160d] shadow-sm ring-1 ring-stone-100 transition-transform hover:-translate-y-0.5 hover:bg-orange-50 active:translate-y-0">
+          <button
+            onClick={() => navigate('/caterers')}
+            className="flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-[#1b160d] shadow-sm ring-1 ring-stone-100 transition-transform hover:-translate-y-0.5 hover:bg-orange-50 active:translate-y-0"
+          >
             <Search className="w-5 h-5 text-[#ef9d2a]" />
             Find Caterer
           </button>
@@ -225,12 +234,12 @@ const Dashboard: React.FC = () => {
         <div className="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-100">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-lg font-bold text-[#1b160d]">Recent Enquiries</h2>
-            <a
-              href="#"
+            <Link
+              to="/dashboard/enquiries"
               className="text-sm font-bold text-[#ef9d2a] hover:text-orange-600 transition-colors"
             >
               View All
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col gap-4">
             {MOCK_DATA.recentEnquiries.map((enquiry) => (
@@ -295,12 +304,12 @@ const Dashboard: React.FC = () => {
         <div className="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-stone-100">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-lg font-bold text-[#1b160d]">Saved Caterers</h2>
-            <a
-              href="#"
+            <Link
+              to="/dashboard/saved"
               className="text-sm font-bold text-[#ef9d2a] hover:text-orange-600 transition-colors"
             >
               Browse All
-            </a>
+            </Link>
           </div>
           <div className="flex flex-col gap-4">
             {MOCK_DATA.savedCaterers.map((caterer) => (

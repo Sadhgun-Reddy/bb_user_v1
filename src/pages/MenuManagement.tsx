@@ -114,7 +114,7 @@ const MenuPackageCard: React.FC<MenuPackageCardProps> = ({ menu, onToggle }) => 
 const AddNewPlaceholder: React.FC = () => {
   return (
     <Link
-      to="/caterer/menus/new"
+      to="/caterer/menus/dish/new"
       className="group bg-transparent rounded-2xl p-6 border-2 border-dashed border-stone-200 flex flex-col items-center justify-center min-h-[360px] cursor-pointer hover:border-[#ef9d2a]/50 hover:bg-[#ef9d2a]/5 transition-all"
     >
       <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -176,7 +176,7 @@ const MenuManagement: React.FC = () => {
         </div>
 
         <Link
-          to="/caterer/menus/new"
+          to="/caterer/menus/dish/new"
           className="bg-[#ef9d2a] hover:bg-[#d98a1e] text-white px-6 py-3 rounded-full font-bold shadow-lg shadow-orange-500/30 flex items-center justify-center gap-2 transition-all transform hover:-translate-y-0.5 active:translate-y-0 shrink-0"
         >
           <Plus className="w-5 h-5" strokeWidth={3} />

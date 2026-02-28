@@ -12,6 +12,7 @@ import {
   AlertTriangle,
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 // 1. Wizard Progress Component
 const WizardProgress = ({ currentStep }: any) => {
@@ -37,8 +38,8 @@ const WizardProgress = ({ currentStep }: any) => {
         <div key={step.num} className="relative z-10 flex flex-col items-center gap-2">
           <div
             className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-base transition-all duration-300 ${currentStep >= step.num
-                ? 'bg-[#ef9d2a] text-white shadow-lg shadow-orange-500/30 ring-4 ring-white'
-                : 'bg-white border-2 border-stone-200 text-stone-400'
+              ? 'bg-[#ef9d2a] text-white shadow-lg shadow-orange-500/30 ring-4 ring-white'
+              : 'bg-white border-2 border-stone-200 text-stone-400'
               }`}
           >
             {currentStep > step.num ? <Check className="w-6 h-6" strokeWidth={3} /> : step.num}
@@ -109,10 +110,10 @@ const Step1Details = ({ formData, setFormData, onNext }: any) => {
               type="button"
               onClick={() => setFormData({ ...formData, urgency: level })}
               className={`flex-1 py-3.5 rounded-full text-sm font-bold transition-all ${formData.urgency === level
-                  ? level === 'Critical'
-                    ? 'bg-red-500 text-white shadow-md'
-                    : 'bg-[#ef9d2a] text-white shadow-md'
-                  : 'text-stone-500 hover:text-stone-700'
+                ? level === 'Critical'
+                  ? 'bg-red-500 text-white shadow-md'
+                  : 'bg-[#ef9d2a] text-white shadow-md'
+                : 'text-stone-500 hover:text-stone-700'
                 }`}
             >
               {level}
@@ -357,37 +358,9 @@ export default function RequestFoodPage() {
   };
 
   const handleSubmit = () => {
-    // Here you would typically dispatch to an API
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setIsSubmitted(true);
+    toast.success('Request Sent Successfully!');
+    navigate('/dashboard');
   };
-
-  // --- Success State UI ---
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-[#fcfaf8] flex flex-col items-center justify-center p-4 font-['Plus_Jakarta_Sans',sans-serif] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-400/5 rounded-full blur-3xl rounded-bl-full pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#ef9d2a]/5 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div className="max-w-md w-full bg-white rounded-[2rem] p-8 md:p-12 shadow-2xl shadow-stone-200/50 border border-stone-100 text-center animate-fade-in-up relative z-10">
-          <div className="w-24 h-24 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-inner border border-emerald-100/50">
-            <Check className="w-12 h-12" strokeWidth={3} />
-          </div>
-          <h2 className="text-3xl font-black text-stone-900 mb-4 tracking-tight">Request Sent!</h2>
-          <p className="text-stone-500 font-medium mb-10 leading-relaxed text-lg">
-            Your food assistance request has been routed to our NGO partners in the network. You
-            will receive a verification call shortly.
-          </p>
-          <Link
-            to="/"
-            className="inline-flex w-full items-center justify-center rounded-full bg-stone-900 px-8 py-5 text-lg font-bold text-white transition-all hover:bg-stone-800 shadow-lg shadow-stone-900/20 active:translate-y-0.5"
-          >
-            Return to Home
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="min-h-screen bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#ef9d2a]/30 relative overflow-x-hidden flex flex-col">

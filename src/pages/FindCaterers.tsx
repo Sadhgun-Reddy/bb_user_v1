@@ -12,7 +12,7 @@ import {
   Building2,
   Users,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // --- INTERFACES ---
 interface Caterer {
@@ -260,8 +260,13 @@ const FilterSidebar: React.FC<{ onReset: () => void }> = ({ onReset }) => {
 };
 
 const CatererCard: React.FC<{ caterer: Caterer }> = ({ caterer }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="bg-white rounded-[2.5rem] shadow-sm border border-transparent hover:border-stone-200 hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col group">
+    <div
+      onClick={() => navigate(`/caterers/${caterer.id}`)}
+      className="bg-white rounded-[2.5rem] shadow-sm border border-transparent hover:border-stone-200 hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col group cursor-pointer"
+    >
       {/* Image Header */}
       <div className="relative h-48 sm:h-52 w-full overflow-hidden shrink-0">
         <img

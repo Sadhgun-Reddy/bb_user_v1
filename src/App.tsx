@@ -16,6 +16,7 @@ const CatererLayout = React.lazy(() => import('./layouts/CatererLayout'));
 const CatererDashboard = React.lazy(() => import('./pages/CatererDashboard'));
 const LoginPage = React.lazy(() => import('./pages/Login'));
 const SignUpPage = React.lazy(() => import('./pages/Signup'));
+const CatererSignupPage = React.lazy(() => import('./pages/CatererSignup'));
 const ForgotPassword = React.lazy(() => import('./pages/ForgotPassword'));
 const ResetPassword = React.lazy(() => import('./pages/ResetPassword'));
 const EmailVerificationPage = React.lazy(() => import('./pages/EmailVerification'));
@@ -64,6 +65,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/caterer-register" element={<CatererSignupPage />} />
               <Route path="/how-it-works" element={<HowItWorksPage />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />

@@ -358,7 +358,7 @@ const BottomCTABlock = () => (
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4">
           <Link
-            to="/register"
+            to="/caterer-register"
             className="w-full sm:w-auto px-10 py-4 bg-white text-[#ef9d2a] rounded-full font-black text-lg flex items-center justify-center gap-2 hover:bg-orange-50 hover:scale-105 active:scale-95 transition-all shadow-xl"
           >
             Get Started Now

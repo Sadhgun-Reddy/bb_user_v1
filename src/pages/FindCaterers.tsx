@@ -373,45 +373,6 @@ export default function FindCaterersPage() {
   return (
     <div className="min-h-screen bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#ef9d2a]/30">
       {/* Minimalist Top Nav (If not layout-wrapper provided) */}
-      <header className="bg-white border-b border-stone-100 h-20 flex items-center px-6 lg:px-12 justify-between sticky top-0 z-50">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-full bg-[#ef9d2a] flex items-center justify-center shadow-lg shadow-orange-500/20">
-            <Building2 className="w-5 h-5 text-white" />
-          </div>
-          <span className="font-black text-xl tracking-tight text-slate-900">BookBawarchi</span>
-        </div>
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            to="/"
-            className="text-sm font-bold text-stone-500 hover:text-stone-900 transition-colors"
-          >
-            Home
-          </Link>
-          <Link to="/caterers" className="text-sm font-black text-[#ef9d2a]">
-            Find Caterers
-          </Link>
-          <Link
-            to="/donate-food"
-            className="text-sm font-bold text-stone-500 hover:text-stone-900 transition-colors"
-          >
-            Donate Food
-          </Link>
-        </nav>
-        <div className="flex items-center gap-4">
-          <Link
-            to="/login"
-            className="text-sm font-bold text-stone-600 hover:text-stone-900 hidden sm:block"
-          >
-            Log In
-          </Link>
-          <Link
-            to="/signup"
-            className="px-6 py-2.5 rounded-full bg-stone-900 text-white text-sm font-bold hover:bg-stone-800 transition-colors shadow-md"
-          >
-            Sign Up
-          </Link>
-        </div>
-      </header>
 
       <div className="max-w-[1600px] mx-auto p-4 sm:p-6 lg:p-8 flex flex-col lg:flex-row gap-8 items-start mt-4">
         {/* LEFT SIDEBAR: Filters (~25%) */}

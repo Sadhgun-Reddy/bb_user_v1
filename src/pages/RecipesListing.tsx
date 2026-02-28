@@ -95,59 +95,6 @@ const CATEGORIES = ['All', 'Breakfast', 'Vegan', 'Desserts', 'Main Course', 'Sna
 
 // --- COMPONENTS ---
 
-const TopNav = () => {
-  return (
-    <header className="sticky top-0 z-50 w-full bg-[#fcfaf8]/90 backdrop-blur-md border-b border-[#f3ece7]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center gap-2">
-            <ChefHat className="w-8 h-8 text-[#ef9d2a]" />
-            <span className="text-stone-900 text-xl font-extrabold tracking-tight">
-              Book Bawarchi
-            </span>
-          </div>
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link
-              to="/"
-              className="text-sm font-semibold text-stone-600 hover:text-[#ef9d2a] transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              to="/caterers"
-              className="text-sm font-semibold text-stone-600 hover:text-[#ef9d2a] transition-colors"
-            >
-              Find Caterers
-            </Link>
-            <Link to="/recipes" className="text-sm font-bold text-[#ef9d2a]">
-              Recipes
-            </Link>
-            <Link
-              to="/support"
-              className="text-sm font-semibold text-stone-600 hover:text-[#ef9d2a] transition-colors"
-            >
-              Support
-            </Link>
-          </nav>
-          {/* Actions */}
-          <div className="flex items-center gap-4">
-            <Link
-              to="/login"
-              className="hidden md:flex items-center justify-center rounded-full h-10 px-6 bg-[#ef9d2a] hover:bg-[#d98a1e] text-white text-sm font-bold transition-all shadow-lg shadow-orange-500/20"
-            >
-              Login
-            </Link>
-            <div className="md:hidden">
-              <Menu className="w-6 h-6 text-stone-800" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-};
 
 const FilterBar = ({ activeCategory, setActiveCategory }: any) => {
   return (
@@ -161,8 +108,8 @@ const FilterBar = ({ activeCategory, setActiveCategory }: any) => {
             key={cat}
             onClick={() => setActiveCategory(cat)}
             className={`px-5 py-2.5 rounded-full text-sm shrink-0 transition-all ${activeCategory === cat
-                ? 'bg-[#ef9d2a] text-white font-bold shadow-md shadow-orange-500/25'
-                : 'bg-white border border-[#f3ece7] text-stone-700 font-medium hover:border-[#ef9d2a]/30 hover:bg-orange-50'
+              ? 'bg-[#ef9d2a] text-white font-bold shadow-md shadow-orange-500/25'
+              : 'bg-white border border-[#f3ece7] text-stone-700 font-medium hover:border-[#ef9d2a]/30 hover:bg-orange-50'
               }`}
           >
             {cat}
@@ -267,8 +214,7 @@ const RecipesListing = () => {
   });
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] text-stone-900 selection:bg-[#ef9d2a]/30">
-      <TopNav />
+    <div className="flex flex-col bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] text-stone-900 selection:bg-[#ef9d2a]/30">
 
       <main className="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
         {/* Hero & Search Array */}

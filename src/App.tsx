@@ -43,6 +43,8 @@ const GalleryManagementPage = React.lazy(() => import('./pages/GalleryManagement
 const ReviewsManagementPage = React.lazy(() => import('./pages/ReviewsManagement'));
 const ContentManagementPage = React.lazy(() => import('./pages/ContentManagement'));
 
+const PublicLayout = React.lazy(() => import('./layouts/PublicLayout'));
+
 function App() {
   return (
     <Router>
@@ -57,20 +59,22 @@ function App() {
       >
         <Suspense fallback={<Loading />}>
           <Routes>
-            {/* --- PUBLIC ROUTES --- */}
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/how-it-works" element={<HowItWorksPage />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/verify-email" element={<EmailVerificationPage />} />
-            <Route path="/recipes" element={<RecipesListing />} />
-            <Route path="/recipes/:id" element={<RecipeDetailPage />} />
-            <Route path="/request-food" element={<RequestFoodPage />} />
-            <Route path="/donate-food" element={<DonateFoodPage />} />
-            <Route path="/caterers" element={<FindCaterersPage />} />
-            <Route path="/caterers/:id" element={<CatererProfilePage />} />
+            {/* --- PUBLIC ROUTES (WRAPPED IN PUBLICLAYOUT) --- */}
+            <Route element={<PublicLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route path="/how-it-works" element={<HowItWorksPage />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/verify-email" element={<EmailVerificationPage />} />
+              <Route path="/recipes" element={<RecipesListing />} />
+              <Route path="/recipes/:id" element={<RecipeDetailPage />} />
+              <Route path="/request-food" element={<RequestFoodPage />} />
+              <Route path="/donate-food" element={<DonateFoodPage />} />
+              <Route path="/caterers" element={<FindCaterersPage />} />
+              <Route path="/caterers/:id" element={<CatererProfilePage />} />
+            </Route>
 
             {/* --- PROTECTED ROUTES (GENERAL USERS) --- */}
             <Route element={<ProtectedRoute />}>

@@ -105,54 +105,6 @@ const RECIPES = [
 
 // --- COMPONENTS ---
 
-const Navbar = () => (
-  <nav className="sticky top-0 z-50 w-full border-b border-neutral-100 bg-background-light/80 backdrop-blur-md">
-    <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
-      <Link className="flex items-center gap-2 text-neutral-800 transition hover:opacity-80" to="/">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-          <UtensilsCrossed size={20} strokeWidth={2.5} />
-        </div>
-        <span className="font-display text-xl font-bold tracking-tight">Book Bawarchi</span>
-      </Link>
-
-      <div className="hidden items-center gap-8 md:flex">
-        <Link
-          className="text-sm font-medium text-neutral-600 hover:text-primary transition-colors"
-          to="/caterers"
-        >
-          Caterers
-        </Link>
-        <Link
-          className="text-sm font-medium text-neutral-600 hover:text-primary transition-colors"
-          to="/recipes"
-        >
-          Recipes
-        </Link>
-        <Link
-          className="text-sm font-medium text-neutral-600 hover:text-primary transition-colors"
-          to="/how-it-works"
-        >
-          About Us
-        </Link>
-      </div>
-
-      <div className="flex items-center gap-3">
-        <Link
-          className="hidden rounded-full border border-neutral-200 bg-white px-6 py-2.5 text-sm font-bold text-neutral-800 transition hover:bg-neutral-50 hover:border-neutral-300 sm:flex"
-          to="/login"
-        >
-          Login
-        </Link>
-        <Link
-          className="rounded-full bg-primary px-6 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/25 transition hover:bg-primary-dark"
-          to="/signup"
-        >
-          Get Started
-        </Link>
-      </div>
-    </div>
-  </nav>
-);
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -457,136 +409,12 @@ const CTASection = () => {
   );
 };
 
-const Footer = () => (
-  <footer className="border-t border-neutral-100 bg-white py-16">
-    <div className="mx-auto max-w-7xl px-6">
-      <div className="grid gap-12 lg:grid-cols-4">
-        {/* Brand */}
-        <div className="lg:col-span-1">
-          <Link className="mb-6 flex items-center gap-2 text-neutral-800" to="/">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
-              <UtensilsCrossed size={16} strokeWidth={3} />
-            </div>
-            <span className="font-display text-lg font-bold">Book Bawarchi</span>
-          </Link>
-          <p className="mb-6 text-sm font-medium text-neutral-500">
-            Connecting hungry neighbors with talented local chefs since 2023.
-          </p>
-          <div className="flex gap-4">
-            <a className="text-neutral-400 hover:text-primary transition-colors" href="#">
-              <Globe size={20} />
-            </a>
-            <a className="text-neutral-400 hover:text-primary transition-colors" href="#">
-              <Camera size={20} />
-            </a>
-            <a className="text-neutral-400 hover:text-primary transition-colors" href="#">
-              <AtSign size={20} />
-            </a>
-          </div>
-        </div>
-
-        {/* Links */}
-        <div>
-          <h4 className="mb-4 font-bold text-neutral-900 uppercase tracking-widest text-xs">
-            Explore
-          </h4>
-          <ul className="space-y-3 text-sm font-medium text-neutral-600">
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/caterers">
-                Search Caterers
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/recipes">
-                Browse Recipes
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/request-food">
-                Community Events
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/">
-                Gift Cards
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 className="mb-4 font-bold text-neutral-900 uppercase tracking-widest text-xs">
-            Company
-          </h4>
-          <ul className="space-y-3 text-sm font-medium text-neutral-600">
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/how-it-works">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/">
-                Careers
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/">
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary transition-colors" to="/">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Newsletter */}
-        <div>
-          <h4 className="mb-4 font-bold text-neutral-900 uppercase tracking-widest text-xs">
-            Stay Updated
-          </h4>
-          <p className="mb-4 text-sm font-medium text-neutral-500">
-            Get the latest local food news.
-          </p>
-          <form className="flex gap-2">
-            <input
-              className="w-full rounded-full border border-neutral-200 bg-neutral-50 px-4 py-2 text-sm font-medium focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary placeholder-neutral-400 transition-shadow"
-              placeholder="Email address"
-              type="email"
-            />
-            <button
-              className="flex h-[42px] w-[42px] flex-none items-center justify-center rounded-full bg-primary text-white hover:bg-primary-dark transition-colors shadow-sm"
-              type="button"
-            >
-              <ArrowRightIcon size={16} strokeWidth={3} />
-            </button>
-          </form>
-        </div>
-      </div>
-
-      <div className="mt-12 border-t border-neutral-100 pt-8 text-center text-sm font-medium text-neutral-400 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <span>© {new Date().getFullYear()} Book Bawarchi. All rights reserved.</span>
-        <div className="flex gap-4 text-xs">
-          <a href="#" className="hover:text-primary cursor-pointer transition-colors">
-            Privacy Policy
-          </a>
-          <a href="#" className="hover:text-primary cursor-pointer transition-colors">
-            Terms of Service
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-);
 
 // --- MAIN PAGE ---
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen bg-background-light font-sans text-neutral-800 selection:bg-primary selection:text-white">
-      <Navbar />
+    <div className="bg-background-light font-sans text-neutral-800 selection:bg-primary selection:text-white">
       <main>
         <Hero />
         <ProblemSolution />
@@ -595,7 +423,6 @@ const HomePage = () => {
         <CommunityRecipes />
         <CTASection />
       </main>
-      <Footer />
     </div>
   );
 };

@@ -368,18 +368,6 @@ export default function RequestFoodPage() {
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#ef9d2a]/[0.03] rounded-full blur-3xl -translate-x-1/4 -translate-y-1/4 pointer-events-none z-0"></div>
       <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-[#ef9d2a]/[0.02] rounded-full blur-3xl translate-x-1/4 pointer-events-none z-0"></div>
 
-      {/* Simple Navbar (Returning to home) */}
-      <header className="absolute top-0 w-full p-6 sm:p-8 z-20">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-3 font-black text-xl text-stone-900 tracking-tight hover:opacity-80 transition-opacity"
-        >
-          <div className="w-10 h-10 rounded-full bg-[#ef9d2a] text-white flex items-center justify-center shadow-md">
-            <User className="w-5 h-5" strokeWidth={2.5} />
-          </div>
-          Book Bawarchi
-        </Link>
-      </header>
 
       <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 relative z-10 mt-20 sm:mt-0 py-12">
         {/* Wizard Card Container */}

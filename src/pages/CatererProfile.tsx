@@ -300,30 +300,6 @@ export default function CatererProfilePage() {
   return (
     <div className="min-h-screen bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#ef9d2a]/30 pb-24">
       {/* Minimal Header Nav */}
-      <header className="bg-white border-b border-stone-100 h-20 flex items-center px-6 lg:px-12 justify-between sticky top-0 z-50">
-        <div className="flex items-center gap-2">
-          <Link
-            to="/"
-            className="w-10 h-10 rounded-full bg-[#ef9d2a] flex items-center justify-center shadow-lg shadow-orange-500/20"
-          >
-            <Utensils className="w-5 h-5 text-white" />
-          </Link>
-          <span className="font-black text-xl tracking-tight text-slate-900">BookBawarchi</span>
-        </div>
-        <nav className="hidden md:flex items-center gap-8">
-          <Link
-            to="/caterers"
-            className="text-sm font-bold text-stone-500 hover:text-stone-900 transition-colors"
-          >
-            ← Back to Search
-          </Link>
-        </nav>
-        <div className="flex items-center gap-4">
-          <button className="h-10 w-10 rounded-full border border-stone-200 flex items-center justify-center text-stone-600 hover:bg-stone-50">
-            <Share2 className="w-4 h-4" />
-          </button>
-        </div>
-      </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 1. Hero Container */}

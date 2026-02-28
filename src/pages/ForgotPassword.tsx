@@ -2,53 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChefHat, Menu, Mail, ArrowRight, ArrowLeft, Unlock, CheckCircle2 } from 'lucide-react';
 
-const AuthNavbar = () => {
-  return (
-    <header className="w-full px-6 py-4 flex items-center justify-between border-b border-stone-100 bg-white/80 backdrop-blur-md relative z-20">
-      <div className="flex items-center gap-2">
-        <ChefHat className="w-8 h-8 text-[#ef9d2a]" />
-        <span className="text-stone-900 text-lg font-bold tracking-tight">Book Bawarchi</span>
-      </div>
-      <nav className="hidden md:flex items-center gap-8">
-        <a
-          href="/"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Home
-        </a>
-        <a
-          href="#"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Find Caterers
-        </a>
-        <a
-          href="#"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Recipes
-        </a>
-        <a
-          href="#"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Support
-        </a>
-      </nav>
-      <div className="flex items-center gap-3">
-        <a
-          href="/login"
-          className="hidden md:flex items-center justify-center rounded-full h-10 px-6 border border-stone-200 hover:border-[#ef9d2a] text-stone-900 hover:text-[#ef9d2a] text-sm font-bold transition-all"
-        >
-          Login
-        </a>
-        <div className="md:hidden">
-          <Menu className="w-6 h-6 text-stone-800" />
-        </div>
-      </div>
-    </header>
-  );
-};
 
 const ForgotPassword = () => {
   const navigate = useNavigate();
@@ -70,7 +23,6 @@ const ForgotPassword = () => {
 
   return (
     <div className="min-h-screen bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] flex flex-col text-stone-900 selection:bg-[#ef9d2a]/30">
-      <AuthNavbar />
 
       <main className="flex-1 flex items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden">
         {/* Abstract Background Shapes (Blurred Circles) */}

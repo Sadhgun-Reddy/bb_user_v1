@@ -14,53 +14,6 @@ import {
 } from 'lucide-react';
 
 // Lightweight Navbar just for the Auth screen
-const AuthNavbar = () => {
-  return (
-    <header className="w-full px-6 py-4 flex items-center justify-between border-b border-stone-100 bg-white/80 backdrop-blur-md relative z-20">
-      <div className="flex items-center gap-2">
-        <ChefHat className="w-8 h-8 text-[#ef9d2a]" />
-        <span className="text-stone-900 text-lg font-bold tracking-tight">Book Bawarchi</span>
-      </div>
-      <nav className="hidden md:flex items-center gap-8">
-        <Link
-          to="/"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Home
-        </Link>
-        <Link
-          to="/caterers"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Find Caterers
-        </Link>
-        <Link
-          to="/recipes"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Recipes
-        </Link>
-        <Link
-          to="#"
-          className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-        >
-          Support
-        </Link>
-      </nav>
-      <div className="flex items-center gap-3">
-        <Link
-          to="/login"
-          className="hidden md:flex items-center justify-center rounded-full h-10 px-6 border border-stone-200 hover:border-[#ef9d2a] text-stone-900 hover:text-[#ef9d2a] text-sm font-bold transition-all"
-        >
-          Login
-        </Link>
-        <div className="md:hidden">
-          <Menu className="w-6 h-6 text-stone-800" />
-        </div>
-      </div>
-    </header>
-  );
-};
 
 // Google Icon SVG
 const GoogleIcon = () => (
@@ -199,7 +152,6 @@ const SignUpPage = () => {
 
   return (
     <div className="min-h-screen bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] flex flex-col text-stone-900 selection:bg-[#ef9d2a]/30">
-      <AuthNavbar />
 
       <main className="flex-1 flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 relative overflow-hidden">
         {/* Abstract Background Shapes (Blurred Circles) */}

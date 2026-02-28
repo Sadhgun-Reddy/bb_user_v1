@@ -108,57 +108,6 @@ const RECIPE_DATA: RecipeDetails = {
 
 // --- COMPONENTS ---
 
-const TopNav: React.FC = () => {
-  return (
-    <header className="sticky top-0 z-50 w-full bg-[#fcfaf8]/90 backdrop-blur-md border-b border-stone-200">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex items-center gap-3">
-            <ChefHat className="w-8 h-8 text-[#ef9d2a]" />
-            <span className="text-stone-900 text-xl font-bold tracking-tight">Book Bawarchi</span>
-          </div>
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex flex-1 justify-end items-center gap-8 pr-8">
-            <Link
-              to="/"
-              className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              to="/caterers"
-              className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-            >
-              Find Caterers
-            </Link>
-            <Link to="/recipes" className="text-sm font-bold text-[#ef9d2a]">
-              Recipes
-            </Link>
-            <Link
-              to="/support"
-              className="text-sm font-medium text-stone-600 hover:text-[#ef9d2a] transition-colors"
-            >
-              Support
-            </Link>
-          </nav>
-          {/* Actions */}
-          <div className="flex items-center gap-4">
-            <Link
-              to="/login"
-              className="hidden md:flex items-center justify-center rounded-full h-10 px-6 bg-[#ef9d2a] hover:bg-[#d98a1e] text-white text-sm font-bold transition-all shadow-lg shadow-orange-500/20"
-            >
-              Sign In
-            </Link>
-            <div className="md:hidden">
-              <Menu className="w-6 h-6 text-stone-800" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-  );
-};
 
 const RecipeHeroGrid: React.FC<{ data: RecipeDetails }> = ({ data }) => {
   return (
@@ -378,12 +327,11 @@ const LeadGenCTA: React.FC<{ chefName: string }> = ({ chefName }) => {
 const RecipeDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
 
-  // Use app selector. TypeScript knows `state.recipes` might not exist or item might be undefined
-  // Using `as any` state fallback since this is a UI migration phase
+  // Use app selector. Using `as any` state fallback since this is a UI migration phase
   const recipeFromStore = useAppSelector((state: any) => state.menu?.items?.find((item: any) => item.id === id));
 
-  // Fallback to mock data for demonstration purposes if matching 'hyderabadi-biryani'
-  const data: RecipeDetails | undefined = recipeFromStore || (id === 'hyderabadi-biryani' || !id ? RECIPE_DATA : undefined);
+  // Fallback to mock data for demonstration purposes. We'll show RECIPE_DATA regardless of id during static phase.
+  const data: RecipeDetails | undefined = recipeFromStore || RECIPE_DATA;
 
   if (!data) {
     return (
@@ -401,8 +349,7 @@ const RecipeDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] text-stone-900 selection:bg-[#ef9d2a]/30">
-      <TopNav />
+    <div className="flex flex-col bg-[#fcfaf8] font-['Plus_Jakarta_Sans',sans-serif] text-stone-900 selection:bg-[#ef9d2a]/30">
 
       {/* Main Content Wrapper */}
       <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-16">

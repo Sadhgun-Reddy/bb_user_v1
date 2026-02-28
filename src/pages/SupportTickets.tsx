@@ -214,9 +214,12 @@ const TicketTable: React.FC = () => (
             </td>
 
             <td className="py-5 pr-4 align-top text-right">
-              <button className="border border-slate-200 rounded-full px-6 py-1.5 text-sm font-bold text-stone-900 hover:bg-white hover:border-[#ef9d2a] hover:text-[#ef9d2a] transition-colors shadow-sm">
+              <Link
+                to={`/dashboard/tickets/${ticket.id.replace('#', '')}`}
+                className="inline-block border border-slate-200 rounded-full px-6 py-1.5 text-sm font-bold text-stone-900 hover:bg-white hover:border-[#ef9d2a] hover:text-[#ef9d2a] transition-colors shadow-sm"
+              >
                 View
-              </button>
+              </Link>
             </td>
           </tr>
         ))}

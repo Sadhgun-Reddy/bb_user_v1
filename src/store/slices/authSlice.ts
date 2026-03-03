@@ -3,7 +3,7 @@ import api from '../../services/api';
 import { AuthState, User } from '../../types';
 import { Urls } from '../../Urls';
 
-export const loginUser = createAsyncThunk<{ user: User; token: string }, any>(
+export const loginUser = createAsyncThunk<{ user: User; catererProfile?: any; token: string }, any>(
   'auth/loginUser',
   async (credentials, { rejectWithValue }) => {
     try {
@@ -20,9 +20,11 @@ export const loginUser = createAsyncThunk<{ user: User; token: string }, any>(
       if (!profileRes.data.success) {
         return rejectWithValue('Failed to fetch profile');
       }
-      const user = profileRes.data.data;
+      const userResponse = profileRes.data.data;
+      const user = userResponse.user || userResponse;
+      const catererProfile = userResponse.caterer || null;
 
-      return { user, token };
+      return { user, catererProfile, token };
     } catch (error: any) {
       return rejectWithValue(
         error.response?.data?.message ||
@@ -32,7 +34,7 @@ export const loginUser = createAsyncThunk<{ user: User; token: string }, any>(
   }
 );
 
-export const registerUser = createAsyncThunk<{ user: User; token: string }, any>(
+export const registerUser = createAsyncThunk<{ user: User; catererProfile?: any; token: string }, any>(
   'auth/registerUser',
   async (userData, { rejectWithValue }) => {
     try {
@@ -49,9 +51,11 @@ export const registerUser = createAsyncThunk<{ user: User; token: string }, any>
       if (!profileRes.data.success) {
         return rejectWithValue('Failed to fetch profile');
       }
-      const user = profileRes.data.data;
+      const userResponse = profileRes.data.data;
+      const user = userResponse.user || userResponse;
+      const catererProfile = userResponse.caterer || null;
 
-      return { user, token };
+      return { user, catererProfile, token };
     } catch (error: any) {
       return rejectWithValue(
         error.response?.data?.message ||
@@ -61,7 +65,7 @@ export const registerUser = createAsyncThunk<{ user: User; token: string }, any>
   }
 );
 
-export const catererRegister = createAsyncThunk<{ user: User; token: string }, any>(
+export const catererRegister = createAsyncThunk<{ user: User; catererProfile?: any; token: string }, any>(
   'auth/catererRegister',
   async (userData, { rejectWithValue }) => {
     try {
@@ -78,9 +82,11 @@ export const catererRegister = createAsyncThunk<{ user: User; token: string }, a
       if (!profileRes.data.success) {
         return rejectWithValue('Failed to fetch profile');
       }
-      const user = profileRes.data.data;
+      const userResponse = profileRes.data.data;
+      const user = userResponse.user || userResponse;
+      const catererProfile = userResponse.caterer || null;
 
-      return { user, token };
+      return { user, catererProfile, token };
     } catch (error: any) {
       return rejectWithValue(
         error.response?.data?.message ||
@@ -90,15 +96,18 @@ export const catererRegister = createAsyncThunk<{ user: User; token: string }, a
   }
 );
 
-export const fetchUserProfile = createAsyncThunk<User, void>(
+export const fetchUserProfile = createAsyncThunk<{ user: User; catererProfile?: any }, void>(
   'auth/fetchUserProfile',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await api.get(Urls.UserGetProfile);
-      if (!response.data.success) {
+      const profileRes = await api.get(Urls.UserGetProfile);
+      if (!profileRes.data.success) {
         return rejectWithValue('Failed to fetch profile');
       }
-      return response.data.data;
+      const userResponse = profileRes.data.data;
+      const user = userResponse.user || userResponse;
+      const catererProfile = userResponse.caterer || null;
+      return { user, catererProfile };
     } catch (error: any) {
       return rejectWithValue(
         error.response?.data?.message || 'Failed to fetch user profile.'
@@ -109,6 +118,7 @@ export const fetchUserProfile = createAsyncThunk<User, void>(
 
 const initialState: AuthState = {
   user: null,
+  catererProfile: null,
   token: localStorage.getItem('token'),
   isAuthenticated: !!localStorage.getItem('token'),
   isLoading: false,
@@ -137,10 +147,11 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(loginUser.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
+      .addCase(loginUser.fulfilled, (state, action: PayloadAction<{ user: User; catererProfile?: any; token: string }>) => {
         state.isLoading = false;
         state.isAuthenticated = true;
         state.user = action.payload.user;
+        state.catererProfile = action.payload.catererProfile || null;
         state.token = action.payload.token;
         // localStorage is already set in the thunk
       })
@@ -155,10 +166,11 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(registerUser.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
+      .addCase(registerUser.fulfilled, (state, action: PayloadAction<{ user: User; catererProfile?: any; token: string }>) => {
         state.isLoading = false;
         state.isAuthenticated = true;
         state.user = action.payload.user;
+        state.catererProfile = action.payload.catererProfile || null;
         state.token = action.payload.token;
       })
       .addCase(registerUser.rejected, (state, action) => {
@@ -172,10 +184,11 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(catererRegister.fulfilled, (state, action: PayloadAction<{ user: User; token: string }>) => {
+      .addCase(catererRegister.fulfilled, (state, action: PayloadAction<{ user: User; catererProfile?: any; token: string }>) => {
         state.isLoading = false;
         state.isAuthenticated = true;
         state.user = action.payload.user;
+        state.catererProfile = action.payload.catererProfile || null;
         state.token = action.payload.token;
       })
       .addCase(catererRegister.rejected, (state, action) => {
@@ -189,10 +202,11 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchUserProfile.fulfilled, (state, action: PayloadAction<User>) => {
+      .addCase(fetchUserProfile.fulfilled, (state, action: PayloadAction<{ user: User; catererProfile?: any }>) => {
         state.isLoading = false;
         state.isAuthenticated = true;
-        state.user = action.payload;
+        state.user = action.payload.user;
+        state.catererProfile = action.payload.catererProfile || null;
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
         state.isLoading = false;

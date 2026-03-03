@@ -22,8 +22,13 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ requiredRole }) => {
 
   if (requiredRole && user?.role !== requiredRole) {
     // If they are logged in but don't have the right role,
-    // maybe redirect to a generic dashboard or unauthorized page
-    return <Navigate to="/dashboard" replace />;
+    if (user?.role === 'caterer') {
+      return <Navigate to="/caterer" replace />;
+    } else if (user?.role === 'customer') {
+      return <Navigate to="/dashboard" replace />;
+    }
+    // Fallback for any other unexpected roles
+    return <Navigate to="/" replace />;
   }
 
   // If authenticated and authorized, render the child routes

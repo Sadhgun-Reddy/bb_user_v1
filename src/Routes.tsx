@@ -73,7 +73,7 @@ const AppRoutes = () => {
                 </Route>
 
                 {/* --- PROTECTED ROUTES (GENERAL USERS) --- */}
-                <Route element={<ProtectedRoute />}>
+                <Route element={<ProtectedRoute requiredRole="customer" />}>
                     <Route path="/dashboard" element={<DashboardLayout />}>
                         <Route index element={<Dashboard />} />
                         <Route path="saved" element={<SavedCaterersPage />} />

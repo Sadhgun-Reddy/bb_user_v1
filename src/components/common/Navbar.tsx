@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
                 <div className="hidden items-center gap-4 md:flex">
                     {isAuthenticated ? (
                         <Link
-                            to={user?.role === 'caterer' || user?.role === 'admin' ? '/caterer' : '/dashboard'}
+                            to={user?.role === 'caterer' ? '/caterer' : '/dashboard'}
                             className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-stone-900 text-white text-sm font-bold hover:bg-stone-800 transition-colors shadow-md transform active:scale-95"
                         >
                             <UserIcon size={16} />

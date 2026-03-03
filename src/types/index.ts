@@ -2,7 +2,7 @@ export interface User {
     id: string;
     name: string;
     email: string;
-    role: 'admin' | 'caterer' | 'user';
+    role: 'admin' | 'caterer' | 'user' | 'customer';
     [key: string]: any; // Catch-all for other mock fields for now
 }
 
@@ -38,6 +38,7 @@ export interface FoodRequest {
 
 export interface AuthState {
     user: User | null;
+    catererProfile: any | null;
     token: string | null;
     isAuthenticated: boolean;
     isLoading: boolean;
